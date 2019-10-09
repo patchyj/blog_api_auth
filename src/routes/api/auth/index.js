@@ -97,7 +97,6 @@ router.post("/register", async (req, res) => {
 });
 
 router.get("/verifyUser", authMiddleware, (req, res, next) => {
-  console.log(req);
   res.json({ isAuthenticated: true });
 });
 
@@ -110,7 +109,6 @@ router.get("/logout", (req, res, next) => {
 
 router.get("/currentUser", authMiddleware, async (req, res) => {
   const { email } = req.user;
-  console.log("email: \n", email);
 
   try {
     const user = await User.findOne({ email });
