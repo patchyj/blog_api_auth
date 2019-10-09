@@ -21,9 +21,8 @@ export default (req, res, next) => {
         req.user = decoded;
         next();
       } catch (errors) {
-        console.log(errors);
         const err = new Error(errors);
-        res.status(400).json(err);
+        res.status(400).json({ err });
       }
     })(req, res, next);
   }
